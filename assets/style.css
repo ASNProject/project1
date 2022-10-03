@@ -1,0 +1,42 @@
+.box {
+  background-color: #fafafa;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  display: flex;
+}
+.video {
+  margin-top: 20px;
+  background-color: #fafafa;
+  justify-content: center;
+  height: 550px;
+  border-radius: 10px;
+}
+.center {
+  vertical-align: middle;
+}
+.time {
+  font-size: 40px;
+}
+.date {
+  font-size: 20px;
+}
+.start {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  display: flex;
+}
+.dht {
+  background-color: #fafafa;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  display: flex;
+}
+span {
+  content: "\2103";
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{.title}}</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body style="background-color: #d2d2d2">
+    <div class="container" style="margin-top: 20px">
+      <div class="row" style="height: 150px">
+        <div class="col-4">
+          <div class="box">
+            <div>
+              <p class="time" id="time">1:20:10AM</p>
+              <p class="date" id="date">1 OCTOBER 2022</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="box">
+            <div>
+              <p class="time" id="time">1:20:10AM</p>
+              <div class="row" style="height: 50px">
+                <div class="col-4">
+                  <i class="fa fa-play" style="font-size: 40px"></i>
+                </div>
+                <div class="col-4 pause">
+                  <i class="fa fa-pause" style="font-size: 40px"></i>
+                </div>
+                <div class="col-4 stop">
+                  <i class="fa fa-stop" style="font-size: 40px"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="box">
+            <div>
+              <div style="height: 50px; display: flex">
+                <i
+                  class="fa fa-thermometer-full"
+                  aria-hidden="true"
+                  style="font-size: 40px; margin: 10px"
+                ></i>
+                <p
+                  style="
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    font-size: 40px;
+                  "
+                >
+                  100
+                </p>
+                <span style="font-size: 40px">&#8451;</span>
+              </div>
+              <div style="height: 50px; display: flex">
+                <i
+                  class="fa fa-tint"
+                  aria-hidden="true"
+                  style="font-size: 40px; margin: 10px"
+                ></i>
+                <p
+                  style="
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    font-size: 40px;
+                  "
+                >
+                  100%
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="video"></div>
+    </div>
+
+    <script type="text/javascript">
+      const getCurrentTimeDate = () => {
+        let currentTimeDate = new Date();
+
+        var weekday = new Array(7);
+        weekday[0] = "SUNDAY";
+        weekday[1] = "MONDAY";
+        weekday[2] = "TUESDAY";
+        weekday[3] = "WEDNESDAY";
+        weekday[4] = "THURSDAY";
+        weekday[5] = "FRIDAY";
+        weekday[6] = "SATURDAY";
+
+        var month = new Array();
+        month[0] = "JANUARY";
+        month[1] = "FEBRUARY";
+        month[2] = "MARCH";
+        month[3] = "APRIL";
+        month[4] = "MAY";
+        month[5] = "JUNE";
+        month[6] = "JULY";
+        month[7] = "AUGUST";
+        month[8] = "SEPTEMBER";
+        month[9] = "OCTOBER";
+        month[10] = "NOVEMBER";
+        month[11] = "DECEMBER";
+
+        var hours = currentTimeDate.getHours();
+        var minutes = currentTimeDate.getMinutes();
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+
+        var AMPM = hours >= 12 ? "PM" : "AM";
+
+        var seconds = currentTimeDate.getSeconds();
+
+        if (hours === 12) {
+          hours = 12;
+        } else {
+          hours = hours % 12;
+        }
+
+        var currentTime = `${hours}:${minutes}:${seconds} ${AMPM}`;
+        var currentDay = weekday[currentTimeDate.getDay()];
+
+        var currentDate = currentTimeDate.getDate();
+        var currentMonth = month[currentTimeDate.getMonth()];
+        var currentYear = currentTimeDate.getFullYear();
+
+        var fullDate = `${currentDay}, ${currentDate} ${currentMonth} ${currentYear}`;
+
+        document.getElementById("time").innerHTML = currentTime;
+        document.getElementById("date").innerHTML = fullDate;
+
+        setTimeout(getCurrentTimeDate, 500);
+      };
+      getCurrentTimeDate();
+    </script>
+  </body>
+</html>
